@@ -1,0 +1,69 @@
+{
+  "StartAt": "State Age",
+  "States": {
+    "State Age": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::aws-sdk:s3:headObject",
+      "Parameters": {
+        "Bucket": "${BucketName}",
+        "Key": "organization-data.json"
+      },
+      "Next": "Refresh State?"
+    },
+    "Refresh State?": {
+      "Type": "Choice",
+      "Choices": [
+        {
+          "Variable": "$.LastModified",
+          "TimestampLessThan": "We need to calculate a timestamp here??",
+          "Next": "Read State"
+        }
+      ],
+      "Default": "Read Organization"
+    },
+    "Read Organization": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::lambda:invoke",
+      "Parameters": {
+        "FunctionName": "${ReadOrganizationArn}"
+      },
+      "ResultPath": "$.OrganizationData",
+      "Next": "Store State"
+    },
+    "Store State": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::aws-sdk:s3:putObject",
+      "Parameters": {
+        "Bucket": "${BucketName}",
+        "Key": "organization-data.json",
+        "Body.$": "$.OrganizationData"
+      },
+      "Next": "List Workloads"
+    },
+    "Read State": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::aws-sdk:s3:getObject",
+      "Parameters": {
+        "Bucket": "${BucketName}",
+        "Key": "organization-data.json"
+      },
+      "OutputPath": "$.Body",
+      "ResultPath": "$.OrganizationData",
+      "Next": "List Workloads"
+    },
+    "List Workloads": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::lambda:invoke",
+      "InputPath": "$.OrganizationData",
+      "Parameters": {
+        "FunctionName": "${ListWorkloadsArn}"
+      },
+      "ResultPath": "$.Workloads",
+      "Next": "Done"
+    },
+    "Done": {
+      "Type": "Pass",
+      "End": true
+    }
+  }
+}
