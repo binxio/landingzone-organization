@@ -1,0 +1,26 @@
+{
+  "StartAt": "Read Organization",
+  "States": {
+    "Read Organization": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::lambda:invoke",
+      "Parameters": {
+        "FunctionName": "${ReadOrganizationArn}"
+      },
+      "OutputPath": "$.Payload",
+      "Next": "List Workloads"
+    },
+    "List Workloads": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::lambda:invoke",
+      "Parameters": {
+        "FunctionName": "${ListWorkloadsArn}",
+        "Payload.$": "$"
+      },
+      "ResultSelector": {
+        "Workloads.$": "$.Payload"
+      },
+      "End": true
+    }
+  }
+}

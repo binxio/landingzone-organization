@@ -1,0 +1,101 @@
+Transform: AWS::Serverless-2016-10-31
+Resources:
+
+  Bucket:
+    Type: AWS::S3::Bucket
+    DeletionPolicy: Retain
+    UpdateReplacePolicy: Retain
+    Properties:
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: aws:kms
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+      LifecycleConfiguration:
+        Rules:
+          - Id: AbortIncompleteMultipartUpload
+            AbortIncompleteMultipartUpload:
+              DaysAfterInitiation: 3
+            NoncurrentVersionExpirationInDays: 3
+            Status: Enabled
+          - Id: Expirein365Days
+            ExpirationInDays: 14
+            Status: Enabled
+
+  BucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref Bucket
+      PolicyDocument:
+        Statement:
+          - Effect: "Deny"
+            Action: "s3:*"
+            Principal: "*"
+            Resource:
+              - !Sub "${Bucket.Arn}/*"
+              - !GetAtt Bucket.Arn
+            Condition:
+              Bool:
+                aws:SecureTransport: false
+
+  StateMachine:
+    Type: AWS::Serverless::StateMachine
+    Properties:
+      DefinitionUri: state_machine.asl.json
+      DefinitionSubstitutions:
+        ReadOrganizationArn: !GetAtt ReadOrganization.Arn
+        ListWorkloadsArn: !GetAtt ListWorkloads.Arn
+        BucketName: !Ref Bucket
+      Policies:
+        - Version: 2012-10-17
+          Statement:
+            - Effect: Allow
+              Action: lambda:InvokeFunction
+              Resource:
+                - !GetAtt ReadOrganization.Arn
+                - !GetAtt ListWorkloads.Arn
+            - Effect: Allow
+              Action:
+                - s3:putObject
+                - s3:getObject
+              Resource:
+                - !Sub ${Bucket.Arn}/organization-data.json
+
+  ReadOrganization:
+    Type: AWS::Serverless::Function
+    Properties:
+      Description: Example function
+      CodeUri: read_organization
+      Handler: index.handler
+      MemorySize: 128
+      Runtime: python3.9
+      Timeout: 300
+      Policies:
+        - Version: 2012-10-17
+          Statement:
+            - Effect: Allow
+              Action: organizations:ListRoots
+              Resource: "*"
+            - Effect: Allow
+              Action:
+                - organizations:DescribeOrganizationalUnit
+                - organizations:DescribeAccount
+                - organizations:ListChildren
+              Resource:
+                - arn:aws:organizations::*:account/*
+                - arn:aws:organizations::*:ou/*
+                - arn:aws:organizations::*:root/*
+
+  ListWorkloads:
+    Type: AWS::Serverless::Function
+    Properties:
+      Description: Example function
+      CodeUri: list_workloads
+      Handler: index.handler
+      MemorySize: 128
+      Runtime: python3.9
+      Timeout: 60
