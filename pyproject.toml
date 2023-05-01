@@ -4,6 +4,7 @@ version = "0.1.0"
 description = ""
 authors = ["Joris Conijn <Joris.Conijn@xebia.com>"]
 readme = "README.md"
+repository = "https://github.com/binxio/landingzone-organization"
 packages = [{include = "landingzone_organization"}]
 
 [tool.poetry.dependencies]
