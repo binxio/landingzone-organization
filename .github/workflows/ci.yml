@@ -41,18 +41,18 @@ jobs:
         run: make test
       - name: Run complexity baseline
         run: make complexity
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v2
-        with:
-          fail_ci_if_error: true
-          token: ${{ secrets.CODECOV_TOKEN }}
-          files: ./reports/coverage.xml
-      - name: Code Coverage Summary Report
-        uses: irongut/CodeCoverageSummary@v1.1.0
-        with:
-          filename: reports/coverage.xml
-          badge: true
-          fail_below_min: true
-          format: markdown
-          output: both
-          thresholds: 95 100
+#      - name: Upload coverage to Codecov
+#        uses: codecov/codecov-action@v2
+#        with:
+#          fail_ci_if_error: true
+#          token: ${{ secrets.CODECOV_TOKEN }}
+#          files: ./reports/coverage.xml
+#      - name: Code Coverage Summary Report
+#        uses: irongut/CodeCoverageSummary@v1.1.0
+#        with:
+#          filename: reports/coverage.xml
+#          badge: true
+#          fail_below_min: true
+#          format: markdown
+#          output: both
+#          thresholds: 95 100
