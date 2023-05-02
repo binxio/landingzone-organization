@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "landingzone-organization"
-version = "0.0.0"
+version = "0.1.1"
 description = ""
 authors = ["Joris Conijn <Joris.Conijn@xebia.com>"]
 readme = "README.md"
@@ -9,7 +9,6 @@ packages = [{include = "landingzone_organization"}]
 
 [tool.semantic_release]
 version_variable = [
-    "landingzone_organization/__init__.py:__version__",
     "pyproject.toml:version"
 ]
 branch = "main"
