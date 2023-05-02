@@ -7,6 +7,16 @@ readme = "README.md"
 repository = "https://github.com/binxio/landingzone-organization"
 packages = [{include = "landingzone_organization"}]
 
+[tool.semantic_release]
+version_variable = [
+    "landingzone_organization/__init__.py:__version__",
+    "pyproject.toml:version"
+]
+branch = "main"
+upload_to_pypi = false
+upload_to_release = true
+build_command = "pip install poetry && poetry build"
+
 [tool.poetry.dependencies]
 python = "^3.9"
 boto3 = "^1.26.83"
