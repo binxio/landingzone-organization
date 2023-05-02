@@ -9,7 +9,7 @@ packages = [{include = "landingzone_organization"}]
 
 [tool.semantic_release]
 version_variable = [
-    "src_folder/__init__.py:__version__",
+    "laningzone_organization/__init__.py:__version__",
     "pyproject.toml:version"
 ]
 branch = "main"
