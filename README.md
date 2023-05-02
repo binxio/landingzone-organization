@@ -122,3 +122,4 @@ you can see how you can create a role that can be assumed from another account.
 You can than assume that role from any other account and initialize the module with accurate organization information.
 
 See: [`cloudformation/read_organization/index.py`](./cloudformation/read_organization/index.py)
+
