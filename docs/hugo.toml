@@ -1,6 +1,0 @@
-languageCode = 'en-us'
-title = 'Landingzone Organization - Docs'
-theme = "hugo-theme-learn"
-
-[outputs]
-home = [ "HTML", "RSS", "JSON"]
