@@ -45,6 +45,7 @@ jobs:
         env:
           HUGO_ENVIRONMENT: production
           HUGO_ENV: production
+          HUGO_CANONIFYURLS: true
         run: |
           cd docs
           hugo --gc --minify --baseURL "${{ steps.pages.outputs.base_url }}"
