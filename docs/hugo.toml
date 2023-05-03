@@ -1,6 +1,5 @@
-baseURL = 'https://example.org/'
 languageCode = 'en-us'
-title = 'Landingzone Organization'
+title = 'Landingzone Organization - Docs'
 theme = "hugo-theme-learn"
 
 [outputs]
