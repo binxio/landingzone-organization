@@ -4,12 +4,10 @@ version = "0.2.1"
 description = ""
 authors = ["Joris Conijn <Joris.Conijn@xebia.com>"]
 readme = "README.md"
+homepage = "https://binxio.github.io/landingzone-organization/"
+documentation = "https://binxio.github.io/landingzone-organization/3-user-documentation/"
 repository = "https://github.com/binxio/landingzone-organization"
 packages = [{include = "landingzone_organization"}]
-
-[project.urls]
-"Homepage" = "https://binxio.github.io/landingzone-organization/"
-"Bug Tracker" = "https://github.com/binxio/landingzone-organization/issues"
 
 [tool.semantic_release]
 version_variable = [
