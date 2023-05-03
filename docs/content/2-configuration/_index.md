@@ -37,7 +37,7 @@ Here you see the least privileged delegated administrator policy that you can us
     {
       "Sid": "ListContent",
       "Effect": "Allow",
-      "Principal": { "AWS": "Delegated Account" },
+      "Principal": { "AWS": "<Delegated Account>" },
       "Action": [
         "organizations:DescribeOrganizationalUnit",
         "organizations:DescribeAccount",
