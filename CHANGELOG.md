@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.2.2 (2023-05-03)
+### Fix
+* Correctly link to user documentation ([#20](https://github.com/binxio/landingzone-organization/issues/20)) ([`eb72dc5`](https://github.com/binxio/landingzone-organization/commit/eb72dc51435ef435aec79937ec6d3f71431f2510))
+
 ## v0.2.1 (2023-05-03)
 ### Fix
 * Homepage url in package and links within documentation ([#19](https://github.com/binxio/landingzone-organization/issues/19)) ([`eb232f4`](https://github.com/binxio/landingzone-organization/commit/eb232f42a696c1377c1a54e46bc436fc13f097f3))
