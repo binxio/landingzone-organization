@@ -25,6 +25,33 @@ landingzone-organization organization download
 This command will query the AWS Organization API and store the aggregated data to a file in the current working directory.
 This file will be reused for every other command.
 
+## Generate profiles for the AWS cli
+
+Managing profiles for the AWS cli could become a nightmare when you have a lot of accounts.
+To make it easier you can generate a separate config file for your organization.
+
+```shell
+AWS_CONFIG_FILE="~/.aws/config-acme" landingzone-organization profiles generate acme \
+        --sso-start-url "https://acme.awsapps.com/start" \
+        --sso-region "eu-central-1" \
+        --role-session-name "John.Doe@acme.com" \
+        --sso-role-name "my-sso-audit-role"
+```
+
+This will create a file called `~/.aws/config-acme` and when you set the `AWS_CONFIG_FILE` environment variable.
+
+```shell
+export AWS_CONFIG_FILE=~/.aws/config-acme
+```
+
+From now on the profiles are selected from your new "organization" config file. And you can use the account names within your organization as profiles:
+
+```shell
+aws s3 ls --profile <aws account name>
+```
+
+This will work as long as you have the right to assume the `my-sso-audit-role` role in the target account.
+
 ## List all workloads
 
 To get an overview of all the workloads within your organization you can execute the following command:

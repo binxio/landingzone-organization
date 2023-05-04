@@ -35,7 +35,7 @@ from landingzone_organization import AWSOrganization
 organization = AWSOrganization().parse()
 
 # Define the OU structure where the workload accounts live
-nested_ou = ["workloads"]
+nested_ou = ["Workloads"]
 
 # Iterate over all workloads in the provided OU location 
 for workload in organization.workloads(nested_ou):

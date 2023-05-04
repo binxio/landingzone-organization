@@ -2,7 +2,7 @@ from landingzone_organization import Organization
 
 
 def test_all_accounts(organization: Organization) -> None:
-    assert len(organization.all_accounts) == 14
+    assert len(organization.accounts_recursive) == 14
 
 
 def test_accounts(organization: Organization) -> None:
