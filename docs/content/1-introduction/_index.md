@@ -15,7 +15,7 @@ This allows you to for example fetch all names of the workloads that have at lea
 
 The idea is to use this as a foundation to do other things with this information!
 
-## Compatability
+## Compatibility
 
 We aim to be cloud-agnostic, but today we are only compatible with one cloud provider. 
 
