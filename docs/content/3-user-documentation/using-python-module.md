@@ -31,15 +31,21 @@ Now we can start using it in your python scripts, for example create a `list_wor
 ```python
 from landingzone_organization import AWSOrganization
 
-
+# Fetch the organization information and instantiate the organization object 
 organization = AWSOrganization().parse()
 
+# Define the OU structure where the workload accounts live
+nested_ou = ["workloads"]
 
-for workload in organization.workloads(["workloads"]):
+# Iterate over all workloads in the provided OU location 
+for workload in organization.workloads(nested_ou):
+    # Display the workload name
     print(f"Workload: {workload.name}")
 
+    # Iterate over each account in the workload
     for account in workload.accounts:
-        print(f"\tEnvironment: {account.environment} has  {account.account_id}")
+        # Display the environment name and id of the account (aka the workload environment)
+        print(f"\tEnvironment: {account.environment} has {account.account_id}")
 ```
 
 ## Test your script
