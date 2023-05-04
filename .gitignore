@@ -7,5 +7,6 @@ __pycache__
 .idea
 .aws-sam
 dist
-
+acme.ini
+SAMPLE_COMMANDS.md
 organization-data.json
