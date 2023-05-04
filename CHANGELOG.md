@@ -2,6 +2,17 @@
 
 <!--next-version-placeholder-->
 
+## v0.3.0 (2023-05-04)
+### Feature
+* Generate profiles for aws cli tool ([#22](https://github.com/binxio/landingzone-organization/issues/22)) ([`f218ad2`](https://github.com/binxio/landingzone-organization/commit/f218ad22a1cd1377509d3e3b973a53a4f033330e))
+
+### Documentation
+* Improve module example and add pytest example ([`161db05`](https://github.com/binxio/landingzone-organization/commit/161db05cac4352a92f3eacbead8bdc527bf5a743))
+* Fixed typo ([`ae52130`](https://github.com/binxio/landingzone-organization/commit/ae52130da3caa69ff18761e39f7f93e8c289ea3f))
+* Fix image reference ([`589e021`](https://github.com/binxio/landingzone-organization/commit/589e021265a3ab8a25b71273baa0b0e840771094))
+* Improve the aws lambda documentation ([`570d726`](https://github.com/binxio/landingzone-organization/commit/570d7266a99803a8e4be5eba1a0befc801d92806))
+* Fix code references and policy content ([`6b30d6b`](https://github.com/binxio/landingzone-organization/commit/6b30d6b86875d7f87e408500ecfb8ad038b09194))
+
 ## v0.2.2 (2023-05-03)
 ### Fix
 * Correctly link to user documentation ([#20](https://github.com/binxio/landingzone-organization/issues/20)) ([`eb72dc5`](https://github.com/binxio/landingzone-organization/commit/eb72dc51435ef435aec79937ec6d3f71431f2510))

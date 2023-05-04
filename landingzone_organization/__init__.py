@@ -6,4 +6,4 @@ from landingzone_organization.groups import Groups
 from landingzone_organization.group import Group
 from landingzone_organization.profile import Profile
 
-__version__ = "0.2.2"
+__version__ = "0.3.0"
