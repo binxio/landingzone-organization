@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.4.0 (2023-05-05)
+### Feature
+* Add profiles class to fetch available profiles for automation ([#24](https://github.com/binxio/landingzone-organization/issues/24)) ([`7da773b`](https://github.com/binxio/landingzone-organization/commit/7da773bf22eb6ab616d305dbf24b9fee15af806f))
+
 ## v0.3.0 (2023-05-04)
 ### Feature
 * Generate profiles for aws cli tool ([#22](https://github.com/binxio/landingzone-organization/issues/22)) ([`f218ad2`](https://github.com/binxio/landingzone-organization/commit/f218ad22a1cd1377509d3e3b973a53a4f033330e))
