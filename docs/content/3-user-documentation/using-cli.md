@@ -25,9 +25,9 @@ landingzone-organization organization download
 This command will query the AWS Organization API and store the aggregated data to a file in the current working directory.
 This file will be reused for every other command.
 
-## Generate profiles for the AWS cli
+## Generate profiles for the AWS CLI
 
-Managing profiles for the AWS cli could become a nightmare when you have a lot of accounts.
+Managing profiles for the AWS CLI could become a nightmare when you have a lot of accounts.
 To make it easier you can generate a separate config file for your organization.
 
 ```shell

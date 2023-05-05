@@ -7,7 +7,7 @@ pre: "<b>3. </b>"
 
 # Using the python module 
 
-> For this to work, I assume you have configured your AWS cli correctly. You will need the configured profile name in order to test your script. If the default profile is used you can omit the environment variable. 
+> For this to work, I assume you have configured your AWS CLI correctly. You will need the configured profile name in order to test your script. If the default profile is used you can omit the environment variable.
 
 ## Preparation
 
