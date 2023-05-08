@@ -14,30 +14,50 @@ Event in the last example the effort to assume the role and select the right reg
 
 ## Requirements
 
-You will need to have access to a role via SSO in all AWS Accounts. This role can be least privileged for what you want to do a typical audit role will work for most of the questions you most likely have.
+Required tooling:
+
+* [AWS CLI](https://aws.amazon.com/cli/)
+* [Poetry](https://python-poetry.org)
 
 ## Preparation
 
-> You need to have a clone of the github repository and poetry installed!
+You will need to have access to a role via SSO in all AWS Accounts. This role can be least privileged for what you want to do a typical audit role will work for most of the questions you most likely have.
 
-Install all dependencies:
+Setup SSO:
 
 ```shell
+$ aws configure sso
+SSO session name (Recommended): my-sso
+SSO start URL [None]: https://my-sso-portal.awsapps.com/start
+SSO region [None]: us-east-1
+SSO registration scopes [None]: sso:account:access
+```
+
+The process will start a web browser, this will ask you to **Allow** the AWS CLI to login. Afterwards the CLI will ask you what role you would like to assume.
+Here you will need to select a role in the delegated administrator account for AWS Organizations. (Typically your Audit account)
+
+Clone the repository and install all dependencies:
+
+```shell
+git clone git@github.com:binxio/landingzone-organization.git
+cd landingzone-organization
 poetry install
 ```
 
 Next, so first you need to download the organization structure:
 
 ```shell
+export AWS_PROFILE=my-sso
 poetry run landingzone-organization organization download
 ```
 
 Then you need to generate a **separate** config file for your profiles. We are using a separate file because we will read it later, and we do not want to overwrite your existing profiles.
 
 ```shell
-AWS_CONFIG_FILE="~/.aws/config-acme" poetry run landingzone-organization profiles generate acme \
-        --sso-start-url "https://acme.awsapps.com/start" \
-        --sso-region "eu-central-1" \
+export AWS_CONFIG_FILE="~/.aws/config-acme"
+poetry run landingzone-organization profiles generate acme \
+        --sso-start-url "https://my-sso-portal.awsapps.com/start" \
+        --sso-region "us-east-1" \
         --role-session-name "John.Doe@acme.com" \
         --sso-role-name "my-sso-audit-role"
 ```
@@ -45,7 +65,7 @@ AWS_CONFIG_FILE="~/.aws/config-acme" poetry run landingzone-organization profile
 Next you will need to make sure you have an active SSO session by logging into one of the profiles.
 
 ```shell
-AWS_CONFIG_FILE="~/.aws/config-acme" aws sso login --profile <audit account name>
+aws sso login --profile <audit account name>
 ```
 
 ## Run the sample code
