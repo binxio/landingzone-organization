@@ -36,14 +36,14 @@ tests-no-zope = ["cloudpickle", "cloudpickle", "hypothesis", "hypothesis", "mypy
 
 [[package]]
 name = "aws-lambda-builders"
-version = "1.28.0"
+version = "1.31.0"
 description = "Python library to compile, build & package AWS Lambda functions for several runtimes & frameworks."
 category = "dev"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "aws_lambda_builders-1.28.0-py3-none-any.whl", hash = "sha256:bd6566772e7c5d887d05f32cf7e61a57293658388eef4fe8301f65bef432fe39"},
-    {file = "aws_lambda_builders-1.28.0.tar.gz", hash = "sha256:6ea2fb607057436f03e2a8a857b5c5cbd18f7b2b907c53c2b461e65f843a4f38"},
+    {file = "aws_lambda_builders-1.31.0-py3-none-any.whl", hash = "sha256:ffe186dfb6616ef1f64b62c921b43ad67f50fce257a39a8d2c66ac76cde4ed6b"},
+    {file = "aws_lambda_builders-1.31.0.tar.gz", hash = "sha256:e8c8353eef983b9ac037015038da5b17222f61886ccfcadb1b4aa0af44a49b90"},
 ]
 
 [package.dependencies]
@@ -51,23 +51,23 @@ setuptools = "*"
 wheel = "*"
 
 [package.extras]
-dev = ["black (==23.1.0)", "coverage (==7.2.2)", "flake8 (==3.3.0)", "flake8 (==3.8.4)", "isort (>=4.2.5,<5)", "parameterized (==0.8.1)", "pyelftools (>=0.29,<1.0)", "pytest (>=6.1.1)", "pytest-cov (==4.0.0)", "ruff (==0.0.257)"]
+dev = ["black (==23.3.0)", "coverage (==7.2.3)", "flake8 (==3.3.0)", "flake8 (==3.8.4)", "isort (>=4.2.5,<5)", "parameterized (==0.9.0)", "pyelftools (>=0.29,<1.0)", "pytest (>=6.1.1)", "pytest-cov (==4.0.0)", "ruff (==0.0.261)"]
 
 [[package]]
 name = "aws-sam-cli"
-version = "1.78.0"
+version = "1.83.0"
 description = "AWS SAM CLI is a CLI tool for local development and testing of Serverless applications"
 category = "dev"
 optional = false
 python-versions = ">=3.7, <=4.0, !=4.0"
 files = [
-    {file = "aws-sam-cli-1.78.0.tar.gz", hash = "sha256:cdf356d14ba8d30f895e405da44aea2c922919195bae9592acd62bb916d2292f"},
-    {file = "aws_sam_cli-1.78.0-py3-none-any.whl", hash = "sha256:13ba3804edf643103dab59f4b90deab641657e367aee62ccfa15484f4f80d783"},
+    {file = "aws-sam-cli-1.83.0.tar.gz", hash = "sha256:6ef88080cdbfa5af6bb14282971229d3ecee0580c535b474640427d5a53b09f1"},
+    {file = "aws_sam_cli-1.83.0-py3-none-any.whl", hash = "sha256:a1c44fb7c3534e27fd1ae464068a16a3f698fd22548dbaa7680f5415a62460a3"},
 ]
 
 [package.dependencies]
-aws-lambda-builders = "1.28.0"
-aws-sam-translator = "1.62.0"
+aws-lambda-builders = "1.31.0"
+aws-sam-translator = "1.66.0"
 boto3 = ">=1.19.5,<2.0.0"
 cfn-lint = ">=0.75,<1.0"
 chevron = ">=0.12,<1.0"
@@ -79,29 +79,30 @@ Flask = "<2.1"
 jmespath = ">=0.10.0,<0.11.0"
 pyopenssl = "23.0.0"
 PyYAML = ">=5.4.1,<6.0.0"
-regex = "2021.9.30"
+regex = "!=2021.10.8"
 requests = "2.28.2"
+rich = ">=13.3.3,<13.4.0"
 ruamel-yaml = "0.17.21"
 serverlessrepo = "0.1.10"
-tomlkit = "0.11.6"
+tomlkit = "0.11.7"
 typing-extensions = ">=4.4.0,<4.5.0"
 tzlocal = "3.0"
 watchdog = "2.1.2"
 
 [package.extras]
-dev = ["black (==22.6.0)", "boto3-stubs[apigateway,cloudformation,ecr,iam,lambda,s3,schemas,secretsmanager,signer,stepfunctions,sts,xray] (==1.21.21)", "coverage (==5.3)", "filelock (==3.10.0)", "mypy (==0.790)", "parameterized (==0.8.1)", "psutil (==5.9.0)", "pytest (==7.2.2)", "pytest-cov (==4.0.0)", "pytest-forked (==1.6.0)", "pytest-json-report (==1.5.0)", "pytest-rerunfailures (==11.1.2)", "pytest-timeout (==2.1.0)", "pytest-xdist (==3.2.0)", "ruff (==0.0.251)", "types-PyYAML (==6.0.12)", "types-chevron (==0.14.2)", "types-psutil (==5.9.5.1)", "types-pywin32 (==304.0.0.1)", "types-setuptools (==65.4.0.0)"]
-pre-dev = ["ruff (==0.0.251)"]
+dev = ["black (==22.6.0)", "boto3-stubs[apigateway,cloudformation,ecr,iam,lambda,s3,schemas,secretsmanager,signer,stepfunctions,sts,xray] (==1.21.21)", "coverage (==5.3)", "filelock (==3.10.7)", "mypy (==0.790)", "parameterized (==0.8.1)", "psutil (==5.9.4)", "pytest (==7.2.2)", "pytest-cov (==4.0.0)", "pytest-forked (==1.6.0)", "pytest-json-report (==1.5.0)", "pytest-rerunfailures (==11.1.2)", "pytest-timeout (==2.1.0)", "pytest-xdist (==3.2.0)", "ruff (==0.0.261)", "types-PyYAML (==6.0.12)", "types-chevron (==0.14.2.4)", "types-psutil (==5.9.5.12)", "types-pywin32 (==306.0.0.0)", "types-setuptools (==65.4.0.0)"]
+pre-dev = ["ruff (==0.0.261)"]
 
 [[package]]
 name = "aws-sam-translator"
-version = "1.62.0"
+version = "1.66.0"
 description = "AWS SAM Translator is a library that transform SAM templates into AWS CloudFormation templates"
 category = "dev"
 optional = false
 python-versions = ">=3.7, <=4.0, !=4.0"
 files = [
-    {file = "aws-sam-translator-1.62.0.tar.gz", hash = "sha256:2db24633fbc76b8e6eb76adaf0c1001a0d749288af91d85e7d9007e3b05479fa"},
-    {file = "aws_sam_translator-1.62.0-py3-none-any.whl", hash = "sha256:5d198c8b4097b9210e1a44a64f55c4ee53b84f35d16ef1671b340242c41379cf"},
+    {file = "aws-sam-translator-1.66.0.tar.gz", hash = "sha256:0b9e9684ea0384fd84f5e722f7fea61896c514b95d3403aa782b69acd485dbbf"},
+    {file = "aws_sam_translator-1.66.0-py3-none-any.whl", hash = "sha256:dc4f38cd7ce2a4875d943bf10ba0745901a3a7b7fec1e40b8d13072641630c58"},
 ]
 
 [package.dependencies]
@@ -111,7 +112,7 @@ pydantic = ">=1.8,<2.0"
 typing-extensions = ">=4.4,<5"
 
 [package.extras]
-dev = ["black (==23.1.0)", "boto3 (>=1.23,<2)", "boto3-stubs[appconfig,serverlessrepo] (>=1.19.5,<2.0.0)", "coverage (>=5.3,<8)", "dateparser (>=1.1,<2.0)", "mypy (>=1.0.0,<1.1.0)", "parameterized (>=0.7,<1.0)", "pytest (>=6.2,<8)", "pytest-cov (>=2.10,<5)", "pytest-env (>=0.6,<1)", "pytest-rerunfailures (>=9.1,<12)", "pytest-xdist (>=2.5,<4)", "pyyaml (>=6.0,<7.0)", "requests (>=2.28,<3.0)", "ruamel.yaml (==0.17.21)", "ruff (==0.0.253)", "tenacity (>=8.0,<9.0)", "types-PyYAML (>=6.0,<7.0)", "types-jsonschema (>=3.2,<4.0)"]
+dev = ["black (==23.1.0)", "boto3 (>=1.23,<2)", "boto3-stubs[appconfig,serverlessrepo] (>=1.19.5,<2.0.0)", "coverage (>=5.3,<8)", "dateparser (>=1.1,<2.0)", "mypy (>=1.1.0,<1.2.0)", "parameterized (>=0.7,<1.0)", "pytest (>=6.2,<8)", "pytest-cov (>=2.10,<5)", "pytest-env (>=0.6,<1)", "pytest-rerunfailures (>=9.1,<12)", "pytest-xdist (>=2.5,<4)", "pyyaml (>=6.0,<7.0)", "requests (>=2.28,<3.0)", "ruamel.yaml (==0.17.21)", "ruff (==0.0.261)", "tenacity (>=8.0,<9.0)", "types-PyYAML (>=6.0,<7.0)", "types-jsonschema (>=3.2,<4.0)"]
 
 [[package]]
 name = "binaryornot"
@@ -1928,14 +1929,14 @@ files = [
 
 [[package]]
 name = "tomlkit"
-version = "0.11.6"
+version = "0.11.7"
 description = "Style preserving TOML library"
 category = "dev"
 optional = false
-python-versions = ">=3.6"
+python-versions = ">=3.7"
 files = [
-    {file = "tomlkit-0.11.6-py3-none-any.whl", hash = "sha256:07de26b0d8cfc18f871aec595fda24d95b08fef89d147caa861939f37230bf4b"},
-    {file = "tomlkit-0.11.6.tar.gz", hash = "sha256:71b952e5721688937fb02cf9d354dbcf0785066149d2855e44531ebdd2b65d73"},
+    {file = "tomlkit-0.11.7-py3-none-any.whl", hash = "sha256:5325463a7da2ef0c6bbfefb62a3dc883aebe679984709aee32a317907d0a8d3c"},
+    {file = "tomlkit-0.11.7.tar.gz", hash = "sha256:f392ef70ad87a672f02519f99967d28a4d3047133e2d1df936511465fbb3791d"},
 ]
 
 [[package]]
@@ -2148,4 +2149,4 @@ testing = ["big-O", "flake8 (<5)", "jaraco.functools", "jaraco.itertools", "more
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.9"
-content-hash = "d07a25b7b528d49b6e09bccb55c3292160036899afa611f57339bc85de95ed36"
+content-hash = "78940a5223eda7b19036f650edfc7e67007ca7873517a3b2e3683347d26ba548"
