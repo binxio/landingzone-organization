@@ -1,9 +1,9 @@
 from unittest.mock import patch, mock_open
-
 from click.testing import CliRunner
 
 from landingzone_organization import Organization
 from landingzone_organization.cli import cli
+from landingzone_organization.cli.commands.account import perform_export
 
 
 def test_account() -> None:
@@ -38,3 +38,12 @@ def test_account_view_unknown(organization: Organization) -> None:
         assert "The 100000000000 is not known to this organization" in result.output
 
     assert result.exit_code == 0
+
+
+def test_perform_export(organization: Organization) -> None:
+    mock_file = mock_open()
+
+    with patch("builtins.open", mock_file):
+        perform_export("my-path.csv", organization.accounts([]))
+
+    mock_file.assert_called_once_with('my-path.csv', 'w')
