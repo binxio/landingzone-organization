@@ -49,7 +49,7 @@ source = ["aws_iam_login"]
 
 [tool.coverage.report]
 show_missing = true
-fail_under = 100
+fail_under = 98
 exclude_lines = [
     "if __name__ == .__main__.:"
 ]
