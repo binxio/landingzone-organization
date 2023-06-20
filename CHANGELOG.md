@@ -2,6 +2,16 @@
 
 <!--next-version-placeholder-->
 
+## v0.5.0 (2023-06-20)
+
+### Feature
+
+* Create an export of all accounts ([#62](https://github.com/binxio/landingzone-organization/issues/62)) ([`87ae09e`](https://github.com/binxio/landingzone-organization/commit/87ae09e58b611948441443b30a5c5ad61857a430))
+
+### Documentation
+
+* Add sso context and improve installation instructions ([#26](https://github.com/binxio/landingzone-organization/issues/26)) ([`2ee6ed3`](https://github.com/binxio/landingzone-organization/commit/2ee6ed3cf7c1c08fa521e8d4ee6d831356960d31))
+
 ## v0.4.0 (2023-05-05)
 ### Feature
 * Add profiles class to fetch available profiles for automation ([#24](https://github.com/binxio/landingzone-organization/issues/24)) ([`7da773b`](https://github.com/binxio/landingzone-organization/commit/7da773bf22eb6ab616d305dbf24b9fee15af806f))
