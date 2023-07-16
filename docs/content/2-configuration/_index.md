@@ -14,7 +14,13 @@ options. You can do this via 2 environment variable:
 | **Name**                 | **Default Value** | **Description**                                                                                               |
 |--------------------------|-------------------|---------------------------------------------------------------------------------------------------------------|
 | PATTERN_WORKLOAD_NAME    | `.*?-(.*)-.*`     | The first match is used as the workload name.                                                                 |
-| PATTERN_ENVIRONMENT_NAME | `.*-.*-(.*)`      | The first match is used as the environment name. For example: development, testing, acceptance or production. | 
+| PATTERN_ENVIRONMENT_NAME | `.*-.*-(.*)`      | The first match is used as the environment name. For example: development, testing, acceptance or production. |
+
+## Other environment variable
+
+| **Name**           | **Default Value** | **Description**                                                                                                                        |
+|--------------------|-------------------|----------------------------------------------------------------------------------------------------------------------------------------|
+| ENVIRONMENT_WEIGHT | dev,test,acc,prod | The order that the environments are returned, we match using a startswith. If the environment does not match it will be returned last. |
 
 ## AWS Policies
 

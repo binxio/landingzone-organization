@@ -1,6 +1,5 @@
 from __future__ import annotations
-import re
-from typing import List, Optional, Set
+from typing import List, Optional
 
 from landingzone_organization.account import Account
 
@@ -16,11 +15,11 @@ class Workload:
 
     @property
     def accounts(self) -> List[Account]:
-        return self.__accounts
+        return sorted(self.__accounts, key=lambda x: x.weight)
 
     @property
-    def environments(self) -> Set[str]:
-        return set(map(lambda account: str(account.environment), self.accounts))
+    def environments(self) -> List[str]:
+        return list(map(lambda account: str(account.environment), self.accounts))
 
     def by_environment(self, name: str) -> Optional[Account]:
         def match(account: Account):
