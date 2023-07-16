@@ -3,20 +3,24 @@ from landingzone_organization import Organization
 
 def test_workloads(organization: Organization) -> None:
     workloads = organization.workloads(["Workloads"])
-    assert workloads.environments == {"development",
+    assert workloads.environments == {
+        "development",
         "testing",
         "acceptance",
-        "production"}
+        "production",
+    }
 
     assert len(workloads) == 4
     assert workloads.names == {"workload-1", "workload-2", "workload-3", "workload-4"}
 
     workload1 = workloads.by_name("workload-1")
     assert len(workload1.accounts) == 4
-    assert workload1.environments == ["development",
+    assert workload1.environments == [
+        "development",
         "testing",
         "acceptance",
-        "production"]
+        "production",
+    ]
     assert workload1.by_environment("development").name == "test-workload-1-development"
     assert workload1.by_environment("testing").name == "test-workload-1-testing"
     assert workload1.by_environment("acceptance").name == "test-workload-1-acceptance"

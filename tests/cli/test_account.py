@@ -46,4 +46,4 @@ def test_perform_export(organization: Organization) -> None:
     with patch("builtins.open", mock_file):
         perform_export("my-path.csv", organization.accounts([]))
 
-    mock_file.assert_called_once_with('my-path.csv', 'w')
+    mock_file.assert_called_once_with("my-path.csv", "w")

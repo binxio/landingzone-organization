@@ -29,7 +29,7 @@ def view(ctx: Context, account_id: str):
 
 
 @cli.command()
-@click.argument('output')
+@click.argument("output")
 @click.pass_obj
 def export(ctx: Context, output: str):
     """List all workloads"""
@@ -39,9 +39,7 @@ def export(ctx: Context, output: str):
 def perform_export(path: str, accounts: List[Account]) -> None:
     with open(path, "w") as fh:
         writer = csv.writer(fh, delimiter=";", quotechar='"', quoting=csv.QUOTE_ALL)
-        writer.writerow([
-            "AccountId", "Name", "Environment"
-        ])
+        writer.writerow(["AccountId", "Name", "Environment"])
 
     for account in accounts:
         writer.writerow([account.account_id, account.name, account.environment])

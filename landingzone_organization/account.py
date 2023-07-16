@@ -3,7 +3,10 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Optional
 
-from landingzone_organization.filtering import resolve_account_environment, resolve_account_weight
+from landingzone_organization.filtering import (
+    resolve_account_environment,
+    resolve_account_weight,
+)
 
 
 @dataclass
