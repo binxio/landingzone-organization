@@ -9,7 +9,7 @@ from landingzone_organization.group import Group
 from landingzone_organization.profile import Profile
 from landingzone_organization.profiles import Profiles
 
-__version__ = "0.6.2"
+__version__ = "0.6.3"
 __all__ = [
     AWSOrganization,
     Organization,
