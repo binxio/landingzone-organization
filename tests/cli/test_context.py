@@ -11,22 +11,40 @@ from landingzone_organization.cli import Context
 
 def test_context_default(monkeypatch) -> None:
     monkeypatch.delenv("AWS_PROFILE", raising=False)
-    context = Context(False, None)
-    assert context.debug is False
+
+    with patch("click.echo") as mock_click:
+        context = Context(False, None)
+        context.debug("my message")
+        mock_click.assert_called is False
+
     assert context.session.profile_name == "default"
 
 
 def test_context_debug(monkeypatch) -> None:
     monkeypatch.delenv("AWS_PROFILE", raising=False)
-    context = Context(True, None)
-    assert context.debug is True
+
+    with patch("click.echo") as mock_click:
+        context = Context(True, None)
+        context.debug("my message")
+        mock_click.assert_called_with("my message")
+
+    assert context.session.profile_name == "default"
+
+
+def test_context_info(monkeypatch) -> None:
+    monkeypatch.delenv("AWS_PROFILE", raising=False)
+
+    with patch("click.echo") as mock_click:
+        context = Context(False, None)
+        context.info("my message")
+        mock_click.assert_called_with("my message")
+
     assert context.session.profile_name == "default"
 
 
 def test_context_explicit_profile(monkeypatch) -> None:
     monkeypatch.delenv("AWS_PROFILE", raising=False)
     context = Context(False, "my-profile")
-    assert context.debug is False
 
     try:
         context.session.profile_name
@@ -37,7 +55,6 @@ def test_context_explicit_profile(monkeypatch) -> None:
 def test_context_implicit_profile(monkeypatch) -> None:
     monkeypatch.setenv("AWS_PROFILE", "my-profile")
     context = Context(False, None)
-    assert context.debug is False
 
     try:
         context.session.profile_name

@@ -1,3 +1,4 @@
+import os
 import pytest
 
 from landingzone_organization import (
@@ -6,7 +7,13 @@ from landingzone_organization import (
     Groups,
     Organization,
     OrganizationUnit,
+    Workload,
 )
+
+
+@pytest.fixture
+def config_path() -> str:
+    return os.path.join(os.path.dirname(__file__), "workloads")
 
 
 @pytest.fixture
@@ -22,6 +29,11 @@ def groups(organization) -> Groups:
         ],
         organization=organization,
     )
+
+
+@pytest.fixture
+def workload(organization) -> Workload:
+    return organization.workloads(["Workloads"]).by_name("workload-1")
 
 
 @pytest.fixture

@@ -18,9 +18,13 @@ class Context:
     def session(self) -> Session:
         return boto3.session.Session(profile_name=self.__profile)
 
-    @property
-    def debug(self):
-        return self.__debug
+    def debug(self, message: str) -> None:
+        if self.__debug:
+            click.echo(message)
+
+    @staticmethod
+    def info(message: str) -> None:
+        click.echo(message)
 
     @property
     def data_file(self):
