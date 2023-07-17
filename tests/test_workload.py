@@ -1,5 +1,6 @@
 from landingzone_organization import Workload
 
+
 def test_workload_environment_order(organization) -> None:
     workload = organization.workloads(["Workloads"]).by_name("workload-1")
     assert [

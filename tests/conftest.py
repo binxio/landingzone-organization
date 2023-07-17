@@ -7,7 +7,7 @@ from landingzone_organization import (
     Groups,
     Organization,
     OrganizationUnit,
-    Workload
+    Workload,
 )
 
 

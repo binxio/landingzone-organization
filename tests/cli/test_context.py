@@ -41,6 +41,7 @@ def test_context_info(monkeypatch) -> None:
 
     assert context.session.profile_name == "default"
 
+
 def test_context_explicit_profile(monkeypatch) -> None:
     monkeypatch.delenv("AWS_PROFILE", raising=False)
     context = Context(False, "my-profile")

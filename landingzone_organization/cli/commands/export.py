@@ -30,4 +30,3 @@ def workloads(ctx: Context, config_path: str, ou_path: str) -> None:
         WorkloadGenerator(config_path=config_path, workload=workload).execute()
 
     list(map(handle_workload, workloads))
-

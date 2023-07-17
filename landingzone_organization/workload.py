@@ -33,4 +33,3 @@ class Workload:
     @staticmethod
     def from_dict(data: dict, accounts: List[Account]) -> Workload:
         return Workload(name=data["Name"], accounts=accounts)
-
