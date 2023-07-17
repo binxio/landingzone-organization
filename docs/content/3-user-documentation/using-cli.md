@@ -74,3 +74,16 @@ Account ID you can execute the following command:
 ```shell
 landingzone-organization account view <ACCOUNT_ID>
 ```
+
+## Export your workload structure
+
+In order to enable git approval flows for your workloads you will need a file structure. The following command will create this structure for you:   
+
+```shell
+landingzone-organization export workloads "./workloads" "workloads"
+```
+
+The following will happen:
+1. This will take all the workloads located in the `workloads` organization unit. 
+2. For each workload a folder is created in the `./workloads` folder.
+3. Within the workload folder a: `info.yaml` and a `<ENVIRONMENT>.yaml` per environment is generated.
