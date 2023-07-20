@@ -10,8 +10,8 @@ help:  ## Display this help
 .PHONY: lint
 lint: _black _mypy ## Lint all project files
 
-.PHONY: test # lint complexity-baseline
-test: ## Run the test suite defined in the project
+.PHONY: test
+test: lint complexity ## Run the test suite defined in the project
 	pytest --cov=./landingzone_organization --cov-report term-missing --junitxml=reports/pytest.xml --cov-report xml:reports/coverage.xml
 
 .PHONY: install

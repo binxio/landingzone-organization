@@ -24,4 +24,4 @@ class Account:
 
     @property
     def weight(self) -> int:
-        return resolve_account_weight(self.environment)
+        return resolve_account_weight(self.environment) if self.environment else 100

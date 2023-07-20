@@ -13,7 +13,7 @@ def cli():
     pass
 
 
-@cli.command()
+@cli.command()  # type: ignore
 @click.argument("account-id")
 @click.pass_obj
 def view(ctx: Context, account_id: str):
@@ -28,7 +28,7 @@ def view(ctx: Context, account_id: str):
         click.echo(f"The {account_id} is not known to this organization.")
 
 
-@cli.command()
+@cli.command()  # type: ignore
 @click.argument("output")
 @click.pass_obj
 def export(ctx: Context, output: str):

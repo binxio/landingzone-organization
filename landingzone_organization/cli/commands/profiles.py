@@ -12,7 +12,7 @@ def cli():
     pass
 
 
-@cli.command()
+@cli.command()  # type: ignore
 @click.argument("organization-name")
 @click.option("--sso-start-url", prompt="SSO start URL")
 @click.option("--sso-region", prompt="SSO region")

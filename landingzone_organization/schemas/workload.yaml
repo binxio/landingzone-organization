@@ -3,6 +3,8 @@ additionalProperties: False
 required:
   - Name
 properties:
+  DisplayName:
+    type: string
   Name:
     type: string
   Environments:

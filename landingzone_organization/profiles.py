@@ -9,7 +9,7 @@ class Profiles:
         self.__config_file = config_file
         self.__config = configparser.ConfigParser()
         self.__config.read(config_file)
-        self.__client_errors = {}
+        self.__client_errors: Dict[str, Exception] = {}
 
     @property
     def names(self) -> List[str]:

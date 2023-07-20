@@ -23,15 +23,15 @@ class Group:
         if not self._organization:
             return []
 
-        unit: Union[Organization, OrganizationUnit] = self._organization
+        champion: Union[Organization, OrganizationUnit] = self._organization
 
         for ou in self.organizational_unit:
-            unit = unit.by_name(ou)
+            challenger = champion.by_name(ou)
 
-            if not unit:
-                break
+            if challenger:
+                champion = challenger
 
-        return unit.accounts if unit else []
+        return champion.accounts  # type: ignore
 
     def organization(self, organization: Organization) -> None:
         self._organization = organization

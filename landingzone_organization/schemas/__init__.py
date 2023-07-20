@@ -2,8 +2,7 @@ import os
 import yaml
 from jsonschema import validate
 
-
-schema_path = os.path.dirname(os.path.abspath(__file__))
+from landingzone_organization.account import Account
 
 
 class InvalidSchemaException(Exception):
@@ -14,7 +13,7 @@ class InvalidSchemaException(Exception):
 
 
 def load_schema(file: str) -> dict:
-    with open(os.path.join(schema_path, file), "r") as f:
+    with open(file, "r") as f:
         return yaml.safe_load(f)
 
 
@@ -29,5 +28,15 @@ def safe_load_file(schema: dict, file_path: str) -> dict:
     return data
 
 
-WorkloadSchema = load_schema("workload.yaml")
-EnvironmentSchema = load_schema("environment.yaml")
+def environment_resolver(path: str) -> Account:
+    data = safe_load_file(EnvironmentSchema, path)
+
+    return Account(
+        name=data["Name"],
+        account_id=data["AccountId"],
+    )
+
+
+schema_path = os.path.dirname(os.path.abspath(__file__))
+WorkloadSchema = load_schema(os.path.join(schema_path, "workload.yaml"))
+EnvironmentSchema = load_schema(os.path.join(schema_path, "environment.yaml"))
