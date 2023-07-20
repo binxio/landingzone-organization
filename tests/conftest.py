@@ -12,8 +12,13 @@ from landingzone_organization import (
 
 
 @pytest.fixture
-def config_path() -> str:
+def workload_config_path() -> str:
     return os.path.join(os.path.dirname(__file__), "workloads")
+
+
+@pytest.fixture
+def invalid_schema_config_path() -> str:
+    return os.path.join(os.path.dirname(__file__), "invalid-schemas")
 
 
 @pytest.fixture
@@ -33,7 +38,8 @@ def groups(organization) -> Groups:
 
 @pytest.fixture
 def workload(organization) -> Workload:
-    return organization.workloads(["Workloads"]).by_name("workload-1")
+    workloads = organization.workloads(["Workloads"])
+    return workloads.by_name("workload-1")
 
 
 @pytest.fixture

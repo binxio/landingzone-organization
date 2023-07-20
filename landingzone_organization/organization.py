@@ -23,7 +23,7 @@ class Organization:
     def accounts_recursive(self) -> List[Account]:
         return self.unit.accounts_recursive
 
-    def by_name(self, name: str) -> OrganizationUnit:
+    def by_name(self, name: str) -> Optional[OrganizationUnit]:
         return self.unit.by_name(name)
 
     def by_account_id(self, account_id: str) -> Optional[Account]:
@@ -38,7 +38,7 @@ class Organization:
             unit = unit.by_name(ou_name)
 
             if not unit:
-                break
+                return None
 
         return unit
 
@@ -46,12 +46,9 @@ class Organization:
         unit = self.__resolve_organization_unit(ou_names) or self.unit
         return unit.accounts_recursive
 
-    def workloads(self, ou_names: List[str]) -> Optional[Workloads]:
+    def workloads(self, ou_names: List[str]) -> Workloads:
         workloads = Workloads(workloads=[])
-        unit = self.unit
-
-        if len(ou_names) > 0:
-            unit = self.__resolve_organization_unit(ou_names)
+        unit = self.__resolve_organization_unit(ou_names)
 
         if unit:
             for account in unit.accounts_recursive:
@@ -62,9 +59,10 @@ class Organization:
 
     @property
     def platform_accounts(self) -> List[Account]:
-        workload_accounts = self.workloads(ou_names=[]).accounts
+        workloads = self.workloads(ou_names=[])
+
         workload_account_ids = list(
-            map(lambda account: account.account_id, workload_accounts)
+            map(lambda account: account.account_id, workloads.accounts)
         )
 
         def not_a_workload_account(account: Account):

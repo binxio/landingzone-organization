@@ -9,7 +9,7 @@ def cli():
     pass
 
 
-@cli.command()
+@cli.command()  # type: ignore
 @click.pass_obj
 def download(ctx: Context):
     """Download the organization structure"""

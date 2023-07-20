@@ -14,7 +14,7 @@ def cli():
     pass
 
 
-@cli.command()
+@cli.command()  # type: ignore
 @click.argument("config-path")
 @click.argument("ou-path")
 @click.pass_obj

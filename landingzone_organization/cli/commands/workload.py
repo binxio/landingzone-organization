@@ -10,7 +10,7 @@ def cli():
     pass
 
 
-@cli.command(name="list")
+@cli.command(name="list")  # type: ignore
 @click.pass_obj
 @click.option("-l", "--location")
 def list_workloads(ctx: Context, location: Optional[str]):

@@ -11,14 +11,14 @@ from landingzone_organization.profiles import Profiles
 
 __version__ = "0.7.0"
 __all__ = [
-    AWSOrganization,
-    Organization,
-    OrganizationUnit,
-    Workloads,
-    Workload,
-    Account,
-    Groups,
-    Group,
-    Profile,
-    Profiles,
+    "AWSOrganization",
+    "Organization",
+    "OrganizationUnit",
+    "Workloads",
+    "Workload",
+    "Account",
+    "Groups",
+    "Group",
+    "Profile",
+    "Profiles",
 ]
